@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { User, Package, MessageSquare, Settings, Trash2, CheckCircle, XCircle, Clock, DollarSign } from 'lucide-react';
+const apiBaseUrl = import.meta.env.VITE_API_URL;
+
 
 const AdminDashboard = ({ apiBaseUrl }) => {
   const [activeTab, setActiveTab] = useState('overview');

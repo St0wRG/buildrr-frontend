@@ -29,7 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/quote" element={<Quote apiBaseUrl={API_BASE_URL} />} />
+            <Route path="/quote" element={<Quote apiBaseUrl={import.meta.env.VITE_API_URL} />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact apiBaseUrl={API_BASE_URL} />} />
             <Route path="/login" element={<Login apiBaseUrl={API_BASE_URL} />} />

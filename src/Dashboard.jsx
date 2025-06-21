@@ -19,6 +19,7 @@ import {
   Clock,
   XCircle
 } from 'lucide-react';
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -46,7 +47,7 @@ const Dashboard = () => {
       }
 
       // Récupérer le profil utilisateur
-      const profileResponse = await fetch('http://localhost:5000/api/dashboard/profile', {
+      const profileResponse = await fetch(`${apiBaseUrl}/api/dashboard/profile`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       
@@ -57,8 +58,8 @@ const Dashboard = () => {
       }
 
       // Récupérer les commandes
-      const ordersResponse = await fetch('http://localhost:5000/api/dashboard/orders', {
-        headers: { 'Authorization': `Bearer ${token}` }
+const ordersResponse = await fetch(`${apiBaseUrl}/api/dashboard/orders`, {
+          headers: { 'Authorization': `Bearer ${token}` }
       });
       
       if (ordersResponse.ok) {
@@ -67,8 +68,8 @@ const Dashboard = () => {
       }
 
       // Récupérer les messages
-      const messagesResponse = await fetch('http://localhost:5000/api/dashboard/messages', {
-        headers: { 'Authorization': `Bearer ${token}` }
+const messagesResponse = await fetch(`${apiBaseUrl}/api/dashboard/messages`, {
+          headers: { 'Authorization': `Bearer ${token}` }
       });
       
       if (messagesResponse.ok) {
@@ -80,8 +81,8 @@ const Dashboard = () => {
       }
 
       // Récupérer les statistiques
-      const statsResponse = await fetch('http://localhost:5000/api/dashboard/stats', {
-        headers: { 'Authorization': `Bearer ${token}` }
+const statsResponse = await fetch(`${apiBaseUrl}/api/dashboard/stats`, {
+          headers: { 'Authorization': `Bearer ${token}` }
       });
       
       if (statsResponse.ok) {
@@ -99,8 +100,8 @@ const Dashboard = () => {
   const handleUpdateProfile = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/dashboard/profile', {
-        method: 'PUT',
+const response = await fetch(`${apiBaseUrl}/api/dashboard/profile`, {
+          method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
@@ -122,7 +123,7 @@ const Dashboard = () => {
   const handleSendMessage = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/dashboard/messages', {
+const response = await fetch(`${apiBaseUrl}/api/dashboard/messages`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -144,8 +145,8 @@ const Dashboard = () => {
   const handleDeleteAccount = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/dashboard/account', {
-        method: 'DELETE',
+const response = await fetch(`${apiBaseUrl}/api/dashboard/account`, {
+          method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`

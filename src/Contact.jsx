@@ -10,6 +10,7 @@ import {
   Clock,
   CheckCircle
 } from 'lucide-react';
+const apiBaseUrl = import.meta.env.VITE_API_URL;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const Contact = () => {
     setIsLoading(true);
     
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch(`${apiBaseUrl}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
